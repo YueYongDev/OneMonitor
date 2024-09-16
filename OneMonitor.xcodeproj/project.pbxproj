@@ -14,32 +14,15 @@
 		A66BDED929C34A60005E87F3 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66BDED829C34A60005E87F3 /* PopoverView.swift */; };
 		A66BDEDB29C34AF4005E87F3 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66BDEDA29C34AF4005E87F3 /* StatusBarController.swift */; };
 		A6AA954429C3667300DE7EDE /* MemoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA954329C3667300DE7EDE /* MemoryInfo.swift */; };
-		A6E305AD29C22009009AC246 /* OneTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305AC29C22009009AC246 /* OneTrackerApp.swift */; };
+		A6E305AD29C22009009AC246 /* OneMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305AC29C22009009AC246 /* OneMonitorApp.swift */; };
 		A6E305B129C2200A009AC246 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6E305B029C2200A009AC246 /* Assets.xcassets */; };
 		A6E305B429C2200A009AC246 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6E305B329C2200A009AC246 /* Preview Assets.xcassets */; };
-		A6E305BF29C2200B009AC246 /* OneTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305BE29C2200B009AC246 /* OneTrackerTests.swift */; };
-		A6E305C929C2200B009AC246 /* OneTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305C829C2200B009AC246 /* OneTrackerUITests.swift */; };
-		A6E305CB29C2200B009AC246 /* OneTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305CA29C2200B009AC246 /* OneTrackerUITestsLaunchTests.swift */; };
 		A6E305DD29C22AD2009AC246 /* BatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305DC29C22AD1009AC246 /* BatteryInfo.swift */; };
 		FD4F31592C97D9DD009BA5F9 /* NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F31582C97D9DD009BA5F9 /* NetworkInfo.swift */; };
+		FD7AAEFD2C9887E200E14270 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAEFC2C9887E200E14270 /* SettingsView.swift */; };
+		FD7AAEFF2C98892500E14270 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAEFE2C98892500E14270 /* MenuItem.swift */; };
+		FD7AAF012C98895200E14270 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAF002C98895200E14270 /* CircleProgressBar.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A6E305BB29C2200B009AC246 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A6E305A129C22009009AC246 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A6E305A829C22009009AC246;
-			remoteInfo = OneTracker;
-		};
-		A6E305C529C2200B009AC246 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A6E305A129C22009009AC246 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A6E305A829C22009009AC246;
-			remoteInfo = OneTracker;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A622C78A29C4AE3900330CDA /* CpuInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpuInfo.swift; sourceTree = "<group>"; };
@@ -49,36 +32,20 @@
 		A66BDED829C34A60005E87F3 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		A66BDEDA29C34AF4005E87F3 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		A6AA954329C3667300DE7EDE /* MemoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryInfo.swift; sourceTree = "<group>"; };
-		A6E305A929C22009009AC246 /* OneTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6E305AC29C22009009AC246 /* OneTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTrackerApp.swift; sourceTree = "<group>"; };
+		A6E305A929C22009009AC246 /* OneMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6E305AC29C22009009AC246 /* OneMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMonitorApp.swift; sourceTree = "<group>"; };
 		A6E305B029C2200A009AC246 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6E305B329C2200A009AC246 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A6E305B529C2200A009AC246 /* OneTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneTracker.entitlements; sourceTree = "<group>"; };
-		A6E305BA29C2200B009AC246 /* OneTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6E305BE29C2200B009AC246 /* OneTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTrackerTests.swift; sourceTree = "<group>"; };
-		A6E305C429C2200B009AC246 /* OneTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6E305C829C2200B009AC246 /* OneTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTrackerUITests.swift; sourceTree = "<group>"; };
-		A6E305CA29C2200B009AC246 /* OneTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A6E305B529C2200A009AC246 /* OneMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneMonitor.entitlements; sourceTree = "<group>"; };
 		A6E305DC29C22AD1009AC246 /* BatteryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryInfo.swift; sourceTree = "<group>"; };
 		FD4F31582C97D9DD009BA5F9 /* NetworkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfo.swift; sourceTree = "<group>"; };
+		FD7AAEFC2C9887E200E14270 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FD7AAEFE2C98892500E14270 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		FD7AAF002C98895200E14270 /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A6E305A629C22009009AC246 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6E305B729C2200B009AC246 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6E305C129C2200B009AC246 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -91,7 +58,7 @@
 		A652CA5329C48F2800CDD09E /* App */ = {
 			isa = PBXGroup;
 			children = (
-				A6E305AC29C22009009AC246 /* OneTrackerApp.swift */,
+				A6E305AC29C22009009AC246 /* OneMonitorApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -100,6 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				A66BDED829C34A60005E87F3 /* PopoverView.swift */,
+				FD7AAEFC2C9887E200E14270 /* SettingsView.swift */,
+				FD7AAEFE2C98892500E14270 /* MenuItem.swift */,
+				FD7AAF002C98895200E14270 /* CircleProgressBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,9 +94,7 @@
 		A6E305A029C22009009AC246 = {
 			isa = PBXGroup;
 			children = (
-				A6E305AB29C22009009AC246 /* OneTracker */,
-				A6E305BD29C2200B009AC246 /* OneTrackerTests */,
-				A6E305C729C2200B009AC246 /* OneTrackerUITests */,
+				A6E305AB29C22009009AC246 /* OneMonitor */,
 				A6E305AA29C22009009AC246 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,14 +102,12 @@
 		A6E305AA29C22009009AC246 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A6E305A929C22009009AC246 /* OneTracker.app */,
-				A6E305BA29C2200B009AC246 /* OneTrackerTests.xctest */,
-				A6E305C429C2200B009AC246 /* OneTrackerUITests.xctest */,
+				A6E305A929C22009009AC246 /* OneMonitor.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A6E305AB29C22009009AC246 /* OneTracker */ = {
+		A6E305AB29C22009009AC246 /* OneMonitor */ = {
 			isa = PBXGroup;
 			children = (
 				A652CA5529C48F4000CDD09E /* ViewModel */,
@@ -150,10 +116,10 @@
 				A66BDED529C349D5005E87F3 /* MenuBar */,
 				A6E305D929C22A84009AC246 /* Service */,
 				A6E305B029C2200A009AC246 /* Assets.xcassets */,
-				A6E305B529C2200A009AC246 /* OneTracker.entitlements */,
+				A6E305B529C2200A009AC246 /* OneMonitor.entitlements */,
 				A6E305B229C2200A009AC246 /* Preview Content */,
 			);
-			path = OneTracker;
+			path = OneMonitor;
 			sourceTree = "<group>";
 		};
 		A6E305B229C2200A009AC246 /* Preview Content */ = {
@@ -162,23 +128,6 @@
 				A6E305B329C2200A009AC246 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		A6E305BD29C2200B009AC246 /* OneTrackerTests */ = {
-			isa = PBXGroup;
-			children = (
-				A6E305BE29C2200B009AC246 /* OneTrackerTests.swift */,
-			);
-			path = OneTrackerTests;
-			sourceTree = "<group>";
-		};
-		A6E305C729C2200B009AC246 /* OneTrackerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A6E305C829C2200B009AC246 /* OneTrackerUITests.swift */,
-				A6E305CA29C2200B009AC246 /* OneTrackerUITestsLaunchTests.swift */,
-			);
-			path = OneTrackerUITests;
 			sourceTree = "<group>";
 		};
 		A6E305D929C22A84009AC246 /* Service */ = {
@@ -196,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A6E305A829C22009009AC246 /* OneTracker */ = {
+		A6E305A829C22009009AC246 /* OneMonitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6E305CE29C2200B009AC246 /* Build configuration list for PBXNativeTarget "OneTracker" */;
+			buildConfigurationList = A6E305CE29C2200B009AC246 /* Build configuration list for PBXNativeTarget "OneMonitor" */;
 			buildPhases = (
 				A6E305A529C22009009AC246 /* Sources */,
 				A6E305A629C22009009AC246 /* Frameworks */,
@@ -208,46 +157,10 @@
 			);
 			dependencies = (
 			);
-			name = OneTracker;
+			name = OneMonitor;
 			productName = OneTracker;
-			productReference = A6E305A929C22009009AC246 /* OneTracker.app */;
+			productReference = A6E305A929C22009009AC246 /* OneMonitor.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A6E305B929C2200B009AC246 /* OneTrackerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A6E305D129C2200B009AC246 /* Build configuration list for PBXNativeTarget "OneTrackerTests" */;
-			buildPhases = (
-				A6E305B629C2200B009AC246 /* Sources */,
-				A6E305B729C2200B009AC246 /* Frameworks */,
-				A6E305B829C2200B009AC246 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A6E305BC29C2200B009AC246 /* PBXTargetDependency */,
-			);
-			name = OneTrackerTests;
-			productName = OneTrackerTests;
-			productReference = A6E305BA29C2200B009AC246 /* OneTrackerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A6E305C329C2200B009AC246 /* OneTrackerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A6E305D429C2200B009AC246 /* Build configuration list for PBXNativeTarget "OneTrackerUITests" */;
-			buildPhases = (
-				A6E305C029C2200B009AC246 /* Sources */,
-				A6E305C129C2200B009AC246 /* Frameworks */,
-				A6E305C229C2200B009AC246 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A6E305C629C2200B009AC246 /* PBXTargetDependency */,
-			);
-			name = OneTrackerUITests;
-			productName = OneTrackerUITests;
-			productReference = A6E305C429C2200B009AC246 /* OneTrackerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -257,22 +170,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					A6E305A829C22009009AC246 = {
 						CreatedOnToolsVersion = 14.1;
 					};
-					A6E305B929C2200B009AC246 = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = A6E305A829C22009009AC246;
-					};
-					A6E305C329C2200B009AC246 = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = A6E305A829C22009009AC246;
-					};
 				};
 			};
-			buildConfigurationList = A6E305A429C22009009AC246 /* Build configuration list for PBXProject "OneTracker" */;
+			buildConfigurationList = A6E305A429C22009009AC246 /* Build configuration list for PBXProject "OneMonitor" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -285,9 +190,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A6E305A829C22009009AC246 /* OneTracker */,
-				A6E305B929C2200B009AC246 /* OneTrackerTests */,
-				A6E305C329C2200B009AC246 /* OneTrackerUITests */,
+				A6E305A829C22009009AC246 /* OneMonitor */,
 			);
 		};
 /* End PBXProject section */
@@ -299,20 +202,6 @@
 			files = (
 				A6E305B429C2200A009AC246 /* Preview Assets.xcassets in Resources */,
 				A6E305B129C2200A009AC246 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6E305B829C2200B009AC246 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6E305C229C2200B009AC246 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,43 +219,16 @@
 				A6E305DD29C22AD2009AC246 /* BatteryInfo.swift in Sources */,
 				A622C78D29C4AE4100330CDA /* DiskInfo.swift in Sources */,
 				A622C78B29C4AE3900330CDA /* CpuInfo.swift in Sources */,
-				A6E305AD29C22009009AC246 /* OneTrackerApp.swift in Sources */,
+				A6E305AD29C22009009AC246 /* OneMonitorApp.swift in Sources */,
 				A6AA954429C3667300DE7EDE /* MemoryInfo.swift in Sources */,
+				FD7AAEFF2C98892500E14270 /* MenuItem.swift in Sources */,
 				A66BDED729C349E7005E87F3 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6E305B629C2200B009AC246 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A6E305BF29C2200B009AC246 /* OneTrackerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A6E305C029C2200B009AC246 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A6E305CB29C2200B009AC246 /* OneTrackerUITestsLaunchTests.swift in Sources */,
-				A6E305C929C2200B009AC246 /* OneTrackerUITests.swift in Sources */,
+				FD7AAEFD2C9887E200E14270 /* SettingsView.swift in Sources */,
+				FD7AAF012C98895200E14270 /* CircleProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A6E305BC29C2200B009AC246 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A6E305A829C22009009AC246 /* OneTracker */;
-			targetProxy = A6E305BB29C2200B009AC246 /* PBXContainerItemProxy */;
-		};
-		A6E305C629C2200B009AC246 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A6E305A829C22009009AC246 /* OneTracker */;
-			targetProxy = A6E305C529C2200B009AC246 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A6E305CC29C2200B009AC246 /* Debug */ = {
@@ -402,9 +264,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -462,9 +326,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -487,12 +353,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = OneTracker/OneTracker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OneMonitor/OneMonitor.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"OneTracker/Preview Content\"";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "OneMonitor/Preview\\ Content";
 				DEVELOPMENT_TEAM = M6G5C8MQ32;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -506,7 +373,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyy.OneTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lyy.OneMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -518,12 +385,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = OneTracker/OneTracker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OneMonitor/OneMonitor.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"OneTracker/Preview Content\"";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "OneMonitor/Preview\\ Content";
 				DEVELOPMENT_TEAM = M6G5C8MQ32;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -537,89 +405,17 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyy.OneTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lyy.OneMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		A6E305D229C2200B009AC246 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X3RLZK92Q3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxkuznetsov.OneTrackerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OneTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OneTracker";
-			};
-			name = Debug;
-		};
-		A6E305D329C2200B009AC246 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X3RLZK92Q3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxkuznetsov.OneTrackerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OneTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OneTracker";
-			};
-			name = Release;
-		};
-		A6E305D529C2200B009AC246 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X3RLZK92Q3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxkuznetsov.OneTrackerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = OneTracker;
-			};
-			name = Debug;
-		};
-		A6E305D629C2200B009AC246 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X3RLZK92Q3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxkuznetsov.OneTrackerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = OneTracker;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A6E305A429C22009009AC246 /* Build configuration list for PBXProject "OneTracker" */ = {
+		A6E305A429C22009009AC246 /* Build configuration list for PBXProject "OneMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6E305CC29C2200B009AC246 /* Debug */,
@@ -628,29 +424,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6E305CE29C2200B009AC246 /* Build configuration list for PBXNativeTarget "OneTracker" */ = {
+		A6E305CE29C2200B009AC246 /* Build configuration list for PBXNativeTarget "OneMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6E305CF29C2200B009AC246 /* Debug */,
 				A6E305D029C2200B009AC246 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A6E305D129C2200B009AC246 /* Build configuration list for PBXNativeTarget "OneTrackerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A6E305D229C2200B009AC246 /* Debug */,
-				A6E305D329C2200B009AC246 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A6E305D429C2200B009AC246 /* Build configuration list for PBXNativeTarget "OneTrackerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A6E305D529C2200B009AC246 /* Debug */,
-				A6E305D629C2200B009AC246 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
