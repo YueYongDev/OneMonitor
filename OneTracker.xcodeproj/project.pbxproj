@@ -21,6 +21,7 @@
 		A6E305C929C2200B009AC246 /* OneTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305C829C2200B009AC246 /* OneTrackerUITests.swift */; };
 		A6E305CB29C2200B009AC246 /* OneTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305CA29C2200B009AC246 /* OneTrackerUITestsLaunchTests.swift */; };
 		A6E305DD29C22AD2009AC246 /* BatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305DC29C22AD1009AC246 /* BatteryInfo.swift */; };
+		FD4F31592C97D9DD009BA5F9 /* NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F31582C97D9DD009BA5F9 /* NetworkInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		A6E305C829C2200B009AC246 /* OneTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTrackerUITests.swift; sourceTree = "<group>"; };
 		A6E305CA29C2200B009AC246 /* OneTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A6E305DC29C22AD1009AC246 /* BatteryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryInfo.swift; sourceTree = "<group>"; };
+		FD4F31582C97D9DD009BA5F9 /* NetworkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				A6AA954329C3667300DE7EDE /* MemoryInfo.swift */,
 				A622C78A29C4AE3900330CDA /* CpuInfo.swift */,
 				A622C78C29C4AE4100330CDA /* DiskInfo.swift */,
+				FD4F31582C97D9DD009BA5F9 /* NetworkInfo.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4F31592C97D9DD009BA5F9 /* NetworkInfo.swift in Sources */,
 				A652CA5729C48F4F00CDD09E /* PopoverViewModel.swift in Sources */,
 				A66BDED929C34A60005E87F3 /* PopoverView.swift in Sources */,
 				A66BDEDB29C34AF4005E87F3 /* StatusBarController.swift in Sources */,
@@ -484,14 +488,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OneTracker/OneTracker.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = X3RLZK92Q3;
+				DEVELOPMENT_TEAM = M6G5C8MQ32;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = GoMonitor;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -499,7 +506,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxkuznetsov.OneTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lyy.OneTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -512,14 +519,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OneTracker/OneTracker.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = X3RLZK92Q3;
+				DEVELOPMENT_TEAM = M6G5C8MQ32;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = GoMonitor;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -527,7 +537,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxkuznetsov.OneTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lyy.OneTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

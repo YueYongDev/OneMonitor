@@ -7,97 +7,100 @@
 import SwiftUI
 
 struct PopoverView: View {
-    @State var titleMem = "MEM"
-    @State var titleCpu = "CPU"
-    @State var titleDisk = "DISK"
-    @State var titleAcc = "ACC"
-
-    @State var imageMem = "memorychip"
-    @State var imageCpu = "cpu"
-    @State var imageDisk = "opticaldiscdrive"
-    @State var imageAcc = "battery.50"
+    @State private var sections = [
+        SectionData(title: "CPU", image: "cpu", color: .red),
+        SectionData(title: "MEM", image: "memorychip", color: .green),
+        SectionData(title: "DISK", image: "opticaldiscdrive", color: .yellow),
+        SectionData(title: "ACC", image: "battery.50", color: .blue),
+        SectionData(title: "NET", image: "network", color: .purple)
+    ]
 
     @StateObject var viewModel = PopoverViewModel()
-    
+
     var body: some View {
-        HStack(alignment: .top) {
-            HStack {
-                Spacer()
-                VStack {
-                    CircleProgressBar(title: $titleMem, color: .green, progress: $viewModel.memProgress, imageString: $imageMem ).frame(width: 50, height: 50)
-                    VStack(alignment: .leading) {
-                        Text("Usage: "+(viewModel.memTotal ?? "N/D"))
-                        Text("Compressed: "+(viewModel.memCompressed ?? "N/D"))
-                        Text("Wired: "+(viewModel.memWired ?? "N/D"))
+        VStack(alignment: .center, spacing: 20) {
+            ForEach(sections.indices, id: \.self) { index in
+                HStack(alignment: .top, spacing: 10) {
+                    CircleProgressBar(
+                            title: $sections[index].title,
+                            color: sections[index].color,
+                            progress: progressBinding(for: index),
+                            imageString: $sections[index].image
+                    ).frame(width: 50, height: 50)
+
+                    VStack(alignment: .leading, spacing: 5) {
+                        switch sections[index].title {
+                        case "MEM":
+                            Text("Usage: \(viewModel.memTotal ?? "N/D")")
+                            Text("Compressed: \(viewModel.memCompressed ?? "N/D")")
+                            Text("Wired: \(viewModel.memWired ?? "N/D")")
+                        case "CPU":
+                            Text("System: \(viewModel.cpuSystem ?? "N/D")")
+                            Text("User: \(viewModel.cpuUser ?? "N/D")")
+                            Text("Idle: \(viewModel.cpuIdle ?? "N/D")")
+                        case "DISK":
+                            Text("Total: \(viewModel.diskTotal ?? "N/D")")
+                            Text("Used: \(viewModel.diskUsed ?? "N/D")")
+                            Text("Free: \(viewModel.diskFree ?? "N/D")")
+                        case "ACC":
+                            Text("Time left: \(viewModel.batteryTimeLeft ?? "N/D")")
+                            Text("Temperature: \(viewModel.batteryTemperature ?? "N/D")")
+                            Text("Cycle Count: \(viewModel.batteryCycles ?? "N/D")")
+                        case "NET":
+                            Text("Local IP: \(viewModel.networkIP ?? "N/D")")
+                            Text("Upload: \(viewModel.uploadSpeed ?? "N/D")")
+                            Text("Download: \(viewModel.downloadSpeed ?? "N/D")")
+                        default:
+                            EmptyView()
+                        }
                     }
-                }.padding(.top, 10)
-                Spacer()
+                    Spacer() // 确保内容在水平方向上两端对齐
+                }
+                if index < sections.count - 1 {
+                    Divider()
+                }
             }
-            Divider()
-            HStack {
-                Spacer()
-                VStack {
-                    CircleProgressBar(title: $titleCpu, color: .red, progress: $viewModel.cpuProgress, imageString: $imageCpu).frame(width: 50, height: 50)
-                    VStack(alignment: .leading) {
-                        Text("System: "+(viewModel.cpuSystem ?? "N/D"))
-                        Text("User: "+(viewModel.cpuUser ?? "N/D"))
-                        Text("Idle: "+(viewModel.cpuIdle ?? "N/D"))
-                    }
-                }.padding(.top, 10)
-                Spacer()
-            }
-            Divider()
-            HStack {
-                Spacer()
-                VStack {
-                    CircleProgressBar(title: $titleDisk, color: .yellow, progress: $viewModel.diskProgress, imageString: $imageDisk).frame(width: 50, height: 50)
-                    VStack(alignment: .leading) {
-                        Text("Total: "+(viewModel.diskTotal ?? "N/D"))
-                        Text("Used: "+(viewModel.diskUsed ?? "N/D"))
-                        Text("Free: "+(viewModel.diskFree ?? "N/D"))
-                    }
-                }.padding(.top, 10)
-                Spacer()
-            }
-            Divider()
-            HStack {
-                Spacer()
-                VStack {
-                    CircleProgressBar(title: $titleAcc, color: .blue, progress: $viewModel.batteryProgress, imageString: $imageAcc).frame(width: 50, height: 50)
-                    VStack(alignment: .leading) {
-                        Text("Time left: "+(viewModel.batteryTimeLeft ?? "N/D"))
-                    }
-                }.padding(.top, 10)
-                Spacer()
-            }
-            
-        }.frame(width: 600, height: 125)
-        
+        }
+                .frame(width: 250, height: 450)
+                .padding()
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(radius: 5)
+    }
+
+    private func progressBinding(for index: Int) -> Binding<Double> {
+        switch index {
+        case 0: return $viewModel.memProgress
+        case 1: return $viewModel.cpuProgress
+        case 2: return $viewModel.diskProgress
+        case 3: return $viewModel.batteryProgress
+        default: return .constant(0.0)
+        }
     }
 }
 
-struct PopoverView_Previews: PreviewProvider {
-    static var previews: some View {
-        PopoverView()
-    }
+struct SectionData {
+    var title: String
+    var image: String
+    var color: Color
 }
 
 struct CircleProgressBar: View {
     @Binding var title: String
-    @State var color: Color
+    var color: Color
     @Binding var progress: Double
     @Binding var imageString: String
-    
+
     var body: some View {
         ZStack {
             Circle()
-                .stroke(Color.gray.opacity(0.3), lineWidth: 5)
-            
+                    .stroke(Color.gray.opacity(0.3), lineWidth: 5)
+
             Circle()
-                .trim(from: 0.0, to: CGFloat(progress))
-                .stroke(color, lineWidth: 5)
-                .rotationEffect(Angle(degrees: -90))
-            
+                    .trim(from: 0.0, to: CGFloat(progress))
+                    .stroke(color, lineWidth: 5)
+                    .rotationEffect(Angle(degrees: -90))
+
             VStack(spacing: 0) {
                 Image(systemName: imageString)
                 Text("\(title)").font(.subheadline)
