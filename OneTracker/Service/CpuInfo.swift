@@ -1,10 +1,3 @@
-//
-//  CpuInfo.swift
-//  OneTracker
-//
-//  Created by Max Kuznetsov on 17.03.2023.
-//
-
 import Darwin
 
 final class CpuInfo {
@@ -20,6 +13,7 @@ final class CpuInfo {
     
     private let loadInfoCount: mach_msg_type_number_t = UInt32(MemoryLayout<host_cpu_load_info_data_t>.size / MemoryLayout<integer_t>.size)
     private var loadPrevious = host_cpu_load_info()
+    private var isFirstLoad = true
     
     private func hostCPULoadInfo() -> host_cpu_load_info {
         var size: mach_msg_type_number_t = loadInfoCount
@@ -33,8 +27,15 @@ final class CpuInfo {
     }
     
     func update() {
-        
         let load = hostCPULoadInfo()
+        
+        if isFirstLoad {
+            // 第一次加载数据时，不计算 CPU 使用率，只更新 loadPrevious
+            loadPrevious = load
+            isFirstLoad = false
+            return
+        }
+        
         let userDiff    = Double(load.cpu_ticks.0 - loadPrevious.cpu_ticks.0)
         let systemDiff  = Double(load.cpu_ticks.1 - loadPrevious.cpu_ticks.1)
         let idleDiff    = Double(load.cpu_ticks.2 - loadPrevious.cpu_ticks.2)
@@ -42,6 +43,16 @@ final class CpuInfo {
         loadPrevious    = load
         
         let totalTicks = systemDiff + userDiff + idleDiff + niceDiff
+        
+        // Check if totalTicks is zero to avoid division by zero
+        if totalTicks == 0 {
+            self.percentage = 0.0
+            self.system     = "0.0 %"
+            self.user       = "0.0 %"
+            self.idle       = "0.0 %"
+            return
+        }
+        
         let system     = 100.0 * systemDiff / totalTicks
         let user       = 100.0 * userDiff / totalTicks
         let idle       = 100.0 * idleDiff / totalTicks
@@ -53,7 +64,3 @@ final class CpuInfo {
     }
     
 }
-
-
-
-

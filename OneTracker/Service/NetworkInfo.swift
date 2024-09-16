@@ -86,7 +86,7 @@ public class NetworkInfo {
             let interface = ptr?.pointee
             let addrFamily = interface?.ifa_addr.pointee.sa_family
             if addrFamily == UInt8(AF_LINK) {
-                var data: UnsafeMutablePointer<if_data>? = unsafeBitCast(interface?.ifa_data, to: UnsafeMutablePointer<if_data>?.self)
+                let data: UnsafeMutablePointer<if_data>? = unsafeBitCast(interface?.ifa_data, to: UnsafeMutablePointer<if_data>?.self)
                 if let data = data {
                     uploadBytes += UInt64(data.pointee.ifi_obytes)
                     downloadBytes += UInt64(data.pointee.ifi_ibytes)

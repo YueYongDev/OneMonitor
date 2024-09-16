@@ -1,4 +1,4 @@
-import SwiftUI
+import Foundation
 
 final class PopoverViewModel: ObservableObject {
     @Published var batteryTimeLeft: String?
@@ -26,13 +26,18 @@ final class PopoverViewModel: ObservableObject {
     @Published var uploadSpeed: String?
     @Published var downloadSpeed: String?
 
+    private var lastCpuSystem: String?
+    private var lastCpuUser: String?
+    private var lastCpuIdle: String?
+    private var lastCpuProgress: Double = 0.0
+
     init() {
         updateSystemInfo()
     }
 
     func updateSystemInfo() {
         DispatchQueue.global().async {
-            let timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] timer in
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     self.getBatteryInfo()
@@ -71,10 +76,27 @@ final class PopoverViewModel: ObservableObject {
 
     private func getCpuInfo() {
         CpuInfo.shared.update()
-        cpuSystem = "\(CpuInfo.shared.system)"
-        cpuUser = "\(CpuInfo.shared.user)"
-        cpuIdle = "\(CpuInfo.shared.idle)"
-        cpuProgress = CpuInfo.shared.percentage / 100
+        let cpuSystemValue = "\(CpuInfo.shared.system)"
+        let cpuUserValue = "\(CpuInfo.shared.user)"
+        let cpuIdleValue = "\(CpuInfo.shared.idle)"
+        let cpuProgressValue = CpuInfo.shared.percentage / 100
+
+        if cpuSystemValue == "0.0 %" || cpuUserValue == "0.0 %" || cpuIdleValue == "0.0 %" || cpuProgressValue == 0.0 {
+            cpuSystem = lastCpuSystem
+            cpuUser = lastCpuUser
+            cpuIdle = lastCpuIdle
+            cpuProgress = lastCpuProgress
+        } else {
+            cpuSystem = cpuSystemValue
+            cpuUser = cpuUserValue
+            cpuIdle = cpuIdleValue
+            cpuProgress = cpuProgressValue
+
+            lastCpuSystem = cpuSystemValue
+            lastCpuUser = cpuUserValue
+            lastCpuIdle = cpuIdleValue
+            lastCpuProgress = cpuProgressValue
+        }
     }
 
     private func getDiskInfo() {

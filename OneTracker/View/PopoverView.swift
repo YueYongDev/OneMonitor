@@ -1,9 +1,3 @@
-//
-//  PopoverView.swift
-//  OneTracker
-//  Created by Max Kuznetsov on 16.03.2023.
-//
-
 import SwiftUI
 
 struct PopoverView: View {
@@ -70,8 +64,8 @@ struct PopoverView: View {
 
     private func progressBinding(for index: Int) -> Binding<Double> {
         switch index {
-        case 0: return $viewModel.memProgress
-        case 1: return $viewModel.cpuProgress
+        case 0: return $viewModel.cpuProgress
+        case 1: return $viewModel.memProgress
         case 2: return $viewModel.diskProgress
         case 3: return $viewModel.batteryProgress
         default: return .constant(0.0)
