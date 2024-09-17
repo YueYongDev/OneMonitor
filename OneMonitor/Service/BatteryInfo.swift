@@ -33,15 +33,15 @@ public class Battery {
     public var temperature: Double?
 
     public var charge: Double? {
-        get {
-            if let current = self.currentCapacity,
-               let max = self.maxCapacity {
-                return (Double(current) / Double(max)) * 100.0
+            get {
+                if let current = self.currentCapacity,
+                   let max = self.maxCapacity {
+                    return (Double(current) / Double(max)) * 100.0
+                }
+                return nil
             }
-
-            return nil
         }
-    }
+
 
     public var health: Double? {
         get {

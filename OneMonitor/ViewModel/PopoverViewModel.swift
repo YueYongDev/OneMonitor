@@ -2,7 +2,6 @@ import Foundation
 
 final class PopoverViewModel: ObservableObject {
     @Published var batteryTimeLeft: String?
-    @Published var batteryUsage: String?
     @Published var batteryProgress: Double = 0.0
     @Published var batteryCycles: String?
     @Published var batteryTemperature: String?
@@ -26,44 +25,68 @@ final class PopoverViewModel: ObservableObject {
     @Published var uploadSpeed: String?
     @Published var downloadSpeed: String?
 
-    private var lastCpuSystem: String?
-    private var lastCpuUser: String?
-    private var lastCpuIdle: String?
-    private var lastCpuProgress: Double = 0.0
+    private var lastCpuState: (system: String?, user: String?, idle: String?, progress: Double) = (nil, nil, nil, 0.0)
+    
+    private var infoUpdateTimer: Timer?
+    private var batteryTimer: Timer?
+    private var diskTimer: Timer?
 
     init() {
-        updateSystemInfo()
+        startTimers()
     }
 
-    func updateSystemInfo() {
-        DispatchQueue.global().async {
-            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
-                guard let self = self else { return }
-                DispatchQueue.main.async {
-                    self.getBatteryInfo()
-                    self.getMemInfo()
-                    self.getCpuInfo()
-                    self.getDiskInfo()
-                    self.getNetworkInfo()
-                }
-            }
-            RunLoop.current.add(timer, forMode: .common)
-            RunLoop.current.run()
+    deinit {
+        infoUpdateTimer?.invalidate()
+        batteryTimer?.invalidate()
+        diskTimer?.invalidate()
+    }
+
+    private func startTimers() {
+        // 每秒更新 CPU 和内存信息
+        infoUpdateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            self?.fetchCpuAndMemoryInfo()
+        }
+
+        // 每分钟更新电池信息
+        batteryTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
+            self?.getBatteryInfo()
+        }
+
+        // 每5分钟更新磁盘信息
+        diskTimer = Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { [weak self] _ in
+            self?.getDiskInfo()
+        }
+
+        // 一开始立即调用更新
+        getBatteryInfo()
+        getDiskInfo()
+    }
+
+    private func fetchCpuAndMemoryInfo() {
+        DispatchQueue.main.async { [weak self] in
+            self?.getCpuInfo()
+            self?.getMemInfo()
+            self?.getNetworkInfo()
         }
     }
 
     private func getBatteryInfo() {
         guard let battery = BatteryInfo.shared.getInternalBattery() else {
-            batteryTimeLeft = "N/D"
-            batteryProgress = 0.0
-            batteryCycles = "N/D"
-            batteryTemperature = "N/D"
+            setBatteryDefaultValues()
             return
         }
+
         batteryTimeLeft = battery.timeLeft
-        batteryProgress = battery.charge ?? 0.0
+        batteryProgress = (battery.charge ?? 0.0) / 100.0 // 确保是小数值
         batteryCycles = "\(battery.cycleCount ?? 0)"
         batteryTemperature = "\(battery.temperature ?? 0.0)°C"
+    }
+
+    private func setBatteryDefaultValues() {
+        batteryTimeLeft = "N/D"
+        batteryProgress = 0.0
+        batteryCycles = "N/D"
+        batteryTemperature = "N/D"
     }
 
     private func getMemInfo() {
@@ -76,29 +99,31 @@ final class PopoverViewModel: ObservableObject {
 
     private func getCpuInfo() {
         CpuInfo.shared.update()
-        let cpuSystemValue = "\(CpuInfo.shared.system)"
-        let cpuUserValue = "\(CpuInfo.shared.user)"
-        let cpuIdleValue = "\(CpuInfo.shared.idle)"
-        let cpuProgressValue = CpuInfo.shared.percentage / 100
+        
+        let currentCpuValues = (
+            system: "\(CpuInfo.shared.system)",
+            user: "\(CpuInfo.shared.user)",
+            idle: "\(CpuInfo.shared.idle)",
+            progress: CpuInfo.shared.percentage / 100
+        )
 
-        if cpuSystemValue == "0.0 %" || cpuUserValue == "0.0 %" || cpuIdleValue == "0.0 %" || cpuProgressValue == 0.0 {
-            cpuSystem = lastCpuSystem
-            cpuUser = lastCpuUser
-            cpuIdle = lastCpuIdle
-            cpuProgress = lastCpuProgress
+        if currentCpuValues == (system: "0.0 %", user: "0.0 %", idle: "0.0 %", progress: 0.0) {
+            // 使用上次的值
+            cpuSystem = lastCpuState.system
+            cpuUser = lastCpuState.user
+            cpuIdle = lastCpuState.idle
+            cpuProgress = lastCpuState.progress
         } else {
-            cpuSystem = cpuSystemValue
-            cpuUser = cpuUserValue
-            cpuIdle = cpuIdleValue
-            cpuProgress = cpuProgressValue
-
-            lastCpuSystem = cpuSystemValue
-            lastCpuUser = cpuUserValue
-            lastCpuIdle = cpuIdleValue
-            lastCpuProgress = cpuProgressValue
+            // 更新当前值并保存到lastCpuState中
+            cpuSystem = currentCpuValues.system
+            cpuUser = currentCpuValues.user
+            cpuIdle = currentCpuValues.idle
+            cpuProgress = currentCpuValues.progress
+            
+            lastCpuState = currentCpuValues
         }
     }
-
+    
     private func getDiskInfo() {
         DiskInfo.shared.update()
         diskTotal = DiskInfo.shared.total
@@ -108,11 +133,7 @@ final class PopoverViewModel: ObservableObject {
     }
 
     private func getNetworkInfo() {
-        if let ipAddress = NetworkInfo.shared.getIPAddress() {
-            networkIP = ipAddress
-        } else {
-            networkIP = "N/A"
-        }
+        networkIP = NetworkInfo.shared.getIPAddress() ?? "N/A"
         uploadSpeed = NetworkInfo.shared.getUploadSpeed()
         downloadSpeed = NetworkInfo.shared.getDownloadSpeed()
     }

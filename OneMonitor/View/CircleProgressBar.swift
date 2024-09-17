@@ -25,7 +25,7 @@ struct CircleProgressBar: View {
 
             VStack(spacing: 0) {
                 Image(systemName: imageString)
-                Text("\(title)").font(.subheadline)
+                Text("\(title)").font(.caption)
             }
         }
     }

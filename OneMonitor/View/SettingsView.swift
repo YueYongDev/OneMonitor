@@ -11,85 +11,45 @@ struct SettingsView: View {
     @State private var launchAtLogin = false
     
     var body: some View {
-        VStack {
-            List {
-                Text("Settings")
-                    .font(.largeTitle)
-                    .padding(.bottom, 20)
-                
-                Section(header: Text("General").font(.headline)) {
-                    // 设置项
-                }
+        ScrollView {
+            VStack(spacing: 15) {
+                Group {
+                    SettingsSectionView(header: "General") {
+                        // 设置项（如有）
+                    }
 
-                Section(header: Text("Runner").font(.headline)) {
-                    Toggle(isOn: $invertSpeed) {
-                        Text("Invert speed")
-                        Text("Invert the speed of the runner.")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
-                    Toggle(isOn: $flipHorizontally) {
-                        Text("Flip horizontally")
-                        Text("Flip the runner horizontally.")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
-                    Toggle(isOn: $useSystemAccentColor) {
-                        Text("Use the system accent color")
-                        Text("Use the system accent color for the runner.")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
-                    Toggle(isOn: $selectRandomlyPerTenMinutes) {
-                        Text("Select randomly per 10 minutes automatically")
-                        Text("Automatically select a new runner every 10 minutes.")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
-                    .onChange(of: selectRandomlyPerTenMinutes) { newValue in
-                        if newValue {
-                            self.selectFromAllRunners = true
-                            self.selectFromOnlyMonochromeRunners = false
-                        }
-                    }
-                    HStack {
-                        Toggle(isOn: $selectFromAllRunners) {
-                            Text("Select from all runners")
-                            Text("Select runners from all available runners.")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        Toggle(isOn: $selectFromOnlyMonochromeRunners) {
-                            Text("Select from only monochrome runners")
-                            Text("Select runners from only monochrome runners.")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    Toggle(isOn: $stopTheRunner) {
-                        Text("Stop the runner")
-                        Text("Stop the runner from running.")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
-                }
+                    SettingsSectionView(header: "Runner") {
+                        ToggleView(title: "Invert speed", description: "Invert the speed of the runner.", isOn: $invertSpeed)
 
-                Section(header: Text("Launch").font(.headline)) {
-                    Toggle(isOn: $launchAtLogin) {
-                        Text("Launch RunCat automatically at login")
-                        Text("Automatically launch RunCat when the system starts.")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+                        ToggleView(title: "Flip horizontally", description: "Flip the runner horizontally.", isOn: $flipHorizontally)
+
+                        ToggleView(title: "Use the system accent color", description: "Use the system accent color for the runner.", isOn: $useSystemAccentColor)
+
+                        ToggleView(title: "Select randomly per 10 minutes automatically", description: "Automatically select a new runner every 10 minutes.", isOn: $selectRandomlyPerTenMinutes, onChange: { newValue in
+                            if newValue {
+                                self.selectFromAllRunners = true
+                                self.selectFromOnlyMonochromeRunners = false
+                            }
+                        })
+
+                        HStack {
+                            ToggleView(title: "Select from all runners", description: "Select runners from all available runners.", isOn: $selectFromAllRunners)
+                            ToggleView(title: "Select from only monochrome runners", description: "Select runners from only monochrome runners.", isOn: $selectFromOnlyMonochromeRunners)
+                        }
+                        
+                        ToggleView(title: "Stop the runner", description: "Stop the runner from running.", isOn: $stopTheRunner)
+                    }
+                    
+                    SettingsSectionView(header: "Launch") {
+                        ToggleView(title: "Launch RunCat automatically at login", description: "Automatically launch RunCat when the system starts.", isOn: $launchAtLogin)
                     }
                 }
             }
-            .listStyle(SidebarListStyle())
-            .background(Color.white) // 设置背景颜色为白色
+            .padding()
+            .background(Color(NSColor.windowBackgroundColor)) // 设置背景为系统窗口背景颜色
         }
         .padding()
-        .background(Color.white) // 设置 VStack 的背景颜色为白色
-        .cornerRadius(10) // 添加圆角
-        .shadow(radius: 5) // 添加阴影
+        .background(Color(NSColor.windowBackgroundColor)) // 用您需要的背景色替换
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {
@@ -101,6 +61,59 @@ struct SettingsView: View {
                 }
             }
         }
+    }
+}
+
+struct SettingsSectionView<Content: View>: View {
+    var header: String
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(header)
+                .font(.headline)
+                .padding(.bottom, 5)
+            content()
+                .padding(.vertical, 10)
+                .background(Color.clear)
+                .padding(.horizontal)
+
+            Divider()
+        }
+    }
+}
+
+struct ToggleView: View {
+    var title: String
+    var description: String
+    @Binding var isOn: Bool
+    var onChange: ((Bool) -> Void)? = nil
+    
+    var body: some View {
+        HStack {
+            Toggle(isOn: $isOn.onChange(onChange)) {
+                Text(title)
+                    .font(.headline)
+                Text(description)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+            }
+        }
+        .padding(.horizontal)
+        .background(Color.clear)
+        .cornerRadius(5)
+    }
+}
+
+extension Binding {
+    func onChange(_ onChange: ((Value) -> Void)?) -> Binding<Value> {
+        return Binding<Value>(
+            get: { self.wrappedValue },
+            set: { newValue in
+                self.wrappedValue = newValue
+                onChange?(newValue)
+            }
+        )
     }
 }
 
