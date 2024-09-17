@@ -22,6 +22,7 @@
 		FD7AAEFD2C9887E200E14270 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAEFC2C9887E200E14270 /* SettingsView.swift */; };
 		FD7AAEFF2C98892500E14270 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAEFE2C98892500E14270 /* MenuItem.swift */; };
 		FD7AAF012C98895200E14270 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAF002C98895200E14270 /* CircleProgressBar.swift */; };
+		FD7AAF032C9983C400E14270 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAF022C9983C400E14270 /* SectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FD7AAEFC2C9887E200E14270 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FD7AAEFE2C98892500E14270 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		FD7AAF002C98895200E14270 /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
+		FD7AAF022C9983C400E14270 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				FD7AAEFC2C9887E200E14270 /* SettingsView.swift */,
 				FD7AAEFE2C98892500E14270 /* MenuItem.swift */,
 				FD7AAF002C98895200E14270 /* CircleProgressBar.swift */,
+				FD7AAF022C9983C400E14270 /* SectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				A6E305AD29C22009009AC246 /* OneMonitorApp.swift in Sources */,
 				A6AA954429C3667300DE7EDE /* MemoryInfo.swift in Sources */,
 				FD7AAEFF2C98892500E14270 /* MenuItem.swift in Sources */,
+				FD7AAF032C9983C400E14270 /* SectionView.swift in Sources */,
 				A66BDED729C349E7005E87F3 /* AppDelegate.swift in Sources */,
 				FD7AAEFD2C9887E200E14270 /* SettingsView.swift in Sources */,
 				FD7AAF012C98895200E14270 /* CircleProgressBar.swift in Sources */,

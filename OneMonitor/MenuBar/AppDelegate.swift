@@ -9,12 +9,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Create the CpuInfo instance
         cpuInfo = CpuInfo.shared
         
-        // Set the popover content view controller
-        Self.popover.contentViewController = NSHostingController(rootView: PopoverView())
-        
         // Create the status bar controller and pass the CpuInfo instance
         if let cpuInfo = cpuInfo {
             statusBar = StatusBarController(Self.popover, cpuInfo: cpuInfo)
+        }
+        
+        // Set the popover content view controller and pass the statusBarController
+        if let statusBar = statusBar {
+            let popoverView = PopoverView(statusBarController: statusBar)
+            Self.popover.contentViewController = NSHostingController(rootView: popoverView)
         }
         
         // Hide the main window
