@@ -11,12 +11,12 @@ class StatusBarController {
     private var animationFrames: [NSImage] = []
 
     enum FrameCategory: String {
-        case monkey = "monkey_frame"
+//        case monkey = "monkey_frame"
         case cat = "cat_frame"
         case rabbit = "rabbit_frame"
     }
 
-    private var currentCategory: FrameCategory = .monkey {
+    private var currentCategory: FrameCategory = .cat {
         didSet {
             updateFrames(for: currentCategory)
         }

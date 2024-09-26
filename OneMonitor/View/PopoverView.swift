@@ -182,18 +182,18 @@ struct PopoverView: View {
     private func showFrameCategorySelectionAlert() {
         let alert = NSAlert()
         alert.messageText = "Select Frame Category"
-        alert.addButton(withTitle: "Monkey")
+//        alert.addButton(withTitle: "Monkey")
         alert.addButton(withTitle: "Cat")
         alert.addButton(withTitle: "Rabbit")
         alert.addButton(withTitle: "Cancel")
         let response = alert.runModal()
         switch response {
         case .alertFirstButtonReturn:
-            statusBarController?.switchCategory(to: .monkey)
-        case .alertSecondButtonReturn:
             statusBarController?.switchCategory(to: .cat)
-        case .alertThirdButtonReturn:
+        case .alertSecondButtonReturn:
             statusBarController?.switchCategory(to: .rabbit)
+//        case .alertThirdButtonReturn:
+//            statusBarController?.switchCategory(to: .rabbit)
         default:
             break
         }
