@@ -79,7 +79,38 @@ class StatusBarController {
         if popover.isShown {
             popover.performClose(nil)
         } else {
-            popover.show(relativeTo: statusItem.button!.bounds, of: statusItem.button!, preferredEdge: .maxY)
+            guard let button = statusItem.button else { return }
+
+            // 获取屏幕的可用区域
+            guard let screenFrame = NSScreen.main?.visibleFrame else { return }
+
+            // 计算按钮的框架
+            let buttonRect = button.convert(button.bounds, to: nil)
+
+            // 定义弹出窗口的内容大小
+            let popoverWidth: CGFloat = 400
+            let popoverHeight: CGFloat = 450
+
+            // 计算弹出窗口的起始位置
+            var popoverPoint = NSPoint(x: buttonRect.midX - popoverWidth / 2, y: buttonRect.maxY) // 水平居中显示在按钮下方
+
+            // 检查是否超出屏幕边界并调整位置
+            if popoverPoint.x < screenFrame.minX {
+                popoverPoint.x = screenFrame.minX
+            } else if popoverPoint.x + popoverWidth > screenFrame.maxX {
+                popoverPoint.x = screenFrame.maxX - popoverWidth
+            }
+
+            // 确保 Y 坐标在屏幕内
+            if popoverPoint.y + popoverHeight > screenFrame.maxY {
+                popoverPoint.y = screenFrame.maxY - popoverHeight
+            }
+
+            // 设置弹出窗口的大小
+            popover.contentSize = NSSize(width: popoverWidth, height: popoverHeight)
+            
+            // 正确显示popover
+            popover.show(relativeTo: buttonRect, of: button, preferredEdge: .maxY)
         }
     }
 

@@ -30,6 +30,7 @@ final class PopoverViewModel: ObservableObject {
     private var infoUpdateTimer: Timer?
     private var batteryTimer: Timer?
     private var diskTimer: Timer?
+    private var networkTimer: Timer?
 
     init() {
         startTimers()
@@ -39,12 +40,18 @@ final class PopoverViewModel: ObservableObject {
         infoUpdateTimer?.invalidate()
         batteryTimer?.invalidate()
         diskTimer?.invalidate()
+        networkTimer?.invalidate()
     }
 
     private func startTimers() {
-        // 每秒更新 CPU 和内存信息
-        infoUpdateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        // 每2秒更新 CPU 和内存信息
+        infoUpdateTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] _ in
             self?.fetchCpuAndMemoryInfo()
+        }
+        
+        // 每秒更新网速信息
+        networkTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            self?.getNetworkInfo()
         }
 
         // 每分钟更新电池信息
@@ -60,13 +67,13 @@ final class PopoverViewModel: ObservableObject {
         // 一开始立即调用更新
         getBatteryInfo()
         getDiskInfo()
+        getMemInfo()
     }
 
     private func fetchCpuAndMemoryInfo() {
         DispatchQueue.main.async { [weak self] in
             self?.getCpuInfo()
             self?.getMemInfo()
-            self?.getNetworkInfo()
         }
     }
 
