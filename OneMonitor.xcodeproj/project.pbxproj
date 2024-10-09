@@ -19,6 +19,9 @@
 		A6E305B429C2200A009AC246 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6E305B329C2200A009AC246 /* Preview Assets.xcassets */; };
 		A6E305DD29C22AD2009AC246 /* BatteryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E305DC29C22AD1009AC246 /* BatteryInfo.swift */; };
 		FD4F31592C97D9DD009BA5F9 /* NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F31582C97D9DD009BA5F9 /* NetworkInfo.swift */; };
+		FD7909CF2CB6ECBF007D3077 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7909CE2CB6ECBF007D3077 /* TodoListView.swift */; };
+		FD7909D12CB6ECDE007D3077 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7909D02CB6ECDE007D3077 /* TodoListViewModel.swift */; };
+		FD7909D42CB6F228007D3077 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD7909D32CB6F228007D3077 /* Info.plist */; };
 		FD7AAEFD2C9887E200E14270 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAEFC2C9887E200E14270 /* SettingsView.swift */; };
 		FD7AAEFF2C98892500E14270 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAEFE2C98892500E14270 /* MenuItem.swift */; };
 		FD7AAF012C98895200E14270 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AAF002C98895200E14270 /* CircleProgressBar.swift */; };
@@ -40,6 +43,9 @@
 		A6E305B529C2200A009AC246 /* OneMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneMonitor.entitlements; sourceTree = "<group>"; };
 		A6E305DC29C22AD1009AC246 /* BatteryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryInfo.swift; sourceTree = "<group>"; };
 		FD4F31582C97D9DD009BA5F9 /* NetworkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfo.swift; sourceTree = "<group>"; };
+		FD7909CE2CB6ECBF007D3077 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		FD7909D02CB6ECDE007D3077 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
+		FD7909D32CB6F228007D3077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD7AAEFC2C9887E200E14270 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FD7AAEFE2C98892500E14270 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		FD7AAF002C98895200E14270 /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 				FD7AAEFE2C98892500E14270 /* MenuItem.swift */,
 				FD7AAF002C98895200E14270 /* CircleProgressBar.swift */,
 				FD7AAF022C9983C400E14270 /* SectionView.swift */,
+				FD7909CE2CB6ECBF007D3077 /* TodoListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -81,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				A652CA5629C48F4F00CDD09E /* PopoverViewModel.swift */,
+				FD7909D02CB6ECDE007D3077 /* TodoListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -97,6 +105,7 @@
 		A6E305A029C22009009AC246 = {
 			isa = PBXGroup;
 			children = (
+				FD7909D32CB6F228007D3077 /* Info.plist */,
 				A6E305AB29C22009009AC246 /* OneMonitor */,
 				A6E305AA29C22009009AC246 /* Products */,
 			);
@@ -205,6 +214,7 @@
 			files = (
 				A6E305B429C2200A009AC246 /* Preview Assets.xcassets in Resources */,
 				A6E305B129C2200A009AC246 /* Assets.xcassets in Resources */,
+				FD7909D42CB6F228007D3077 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD7909D12CB6ECDE007D3077 /* TodoListViewModel.swift in Sources */,
 				FD4F31592C97D9DD009BA5F9 /* NetworkInfo.swift in Sources */,
 				A652CA5729C48F4F00CDD09E /* PopoverViewModel.swift in Sources */,
+				FD7909CF2CB6ECBF007D3077 /* TodoListView.swift in Sources */,
 				A66BDED929C34A60005E87F3 /* PopoverView.swift in Sources */,
 				A66BDEDB29C34AF4005E87F3 /* StatusBarController.swift in Sources */,
 				A6E305DD29C22AD2009AC246 /* BatteryInfo.swift in Sources */,
@@ -372,10 +384,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneMonitor/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GoMonitor;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "需要访问您的提醒事项，以显示待办事项。";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -406,10 +420,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneMonitor/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GoMonitor;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "需要访问您的提醒事项，以显示待办事项。";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
