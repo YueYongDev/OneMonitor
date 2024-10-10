@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17327DFA2CB7ADBB00CC6B56 /* WaterReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17327DF92CB7ADBB00CC6B56 /* WaterReminderService.swift */; };
 		A622C78B29C4AE3900330CDA /* CpuInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A622C78A29C4AE3900330CDA /* CpuInfo.swift */; };
 		A622C78D29C4AE4100330CDA /* DiskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A622C78C29C4AE4100330CDA /* DiskInfo.swift */; };
 		A652CA5729C48F4F00CDD09E /* PopoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A652CA5629C48F4F00CDD09E /* PopoverViewModel.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17327DF92CB7ADBB00CC6B56 /* WaterReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterReminderService.swift; sourceTree = "<group>"; };
 		A622C78A29C4AE3900330CDA /* CpuInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpuInfo.swift; sourceTree = "<group>"; };
 		A622C78C29C4AE4100330CDA /* DiskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskInfo.swift; sourceTree = "<group>"; };
 		A652CA5629C48F4F00CDD09E /* PopoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				A622C78A29C4AE3900330CDA /* CpuInfo.swift */,
 				A622C78C29C4AE4100330CDA /* DiskInfo.swift */,
 				FD4F31582C97D9DD009BA5F9 /* NetworkInfo.swift */,
+				17327DF92CB7ADBB00CC6B56 /* WaterReminderService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				A6E305DD29C22AD2009AC246 /* BatteryInfo.swift in Sources */,
 				A622C78D29C4AE4100330CDA /* DiskInfo.swift in Sources */,
 				A622C78B29C4AE3900330CDA /* CpuInfo.swift in Sources */,
+				17327DFA2CB7ADBB00CC6B56 /* WaterReminderService.swift in Sources */,
 				A6E305AD29C22009009AC246 /* OneMonitorApp.swift in Sources */,
 				A6AA954429C3667300DE7EDE /* MemoryInfo.swift in Sources */,
 				FD7AAEFF2C98892500E14270 /* MenuItem.swift in Sources */,

@@ -107,10 +107,7 @@ class StatusBarController {
     }
 
     private func scheduleNotifications() {
-        let content = UNMutableNotificationContent()
-        content.title = "到点啦！"
-        
-        let messages = [
+        let fallbackMessages = [
             "记得喝水，保持身体水分！",
             "给自己倒一杯水，放松一下！",
             "水分补给时间！饮水有助于集中注意力！",
@@ -118,33 +115,52 @@ class StatusBarController {
             "喝水是最简单的健康助力，来一口吧！"
         ]
         
-        // 随机选择一条喝水提示
-        let randomIndex = Int.random(in: 0..<messages.count)
-        content.body = messages[randomIndex]
-        content.sound = UNNotificationSound.default
-
-        // 设置通知时间
-        let dates = [
+        let notificationTimes = [
             (10, 30), (11, 30), (14, 10), (15, 30), (17, 0), (18, 0)
         ]
-
-        for (hour, minute) in dates {
+        
+        for (hour, minute) in notificationTimes {
             var dateComponents = DateComponents()
             dateComponents.calendar = Calendar.current
             dateComponents.hour = hour
             dateComponents.minute = minute
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-            UNUserNotificationCenter.current().add(request) { error in
-                if let error = error {
-                    print("Error scheduling notification: \(error)")
+            
+            // 请求文案
+            sendMessageToDeepSeekAPI(userMessage: "生成一条喝水提醒文案") { generatedMessage in
+                var finalMessage: String
+                
+                if let generatedMessage = generatedMessage {
+                    finalMessage = generatedMessage
+                } else {
+                    finalMessage = fallbackMessages.randomElement() ?? "喝水时间到了，快来一杯水吧！"
+                    print("使用备用文案: \(finalMessage)")
+                }
+                
+                // 创建通知内容
+                let content = UNMutableNotificationContent()
+                content.title = "到点啦！"
+                content.body = finalMessage
+                content.sound = UNNotificationSound.default
+                
+                // 创建通知请求
+                let request = UNNotificationRequest(identifier: "\(hour):\(minute)", content: content, trigger: trigger)
+                
+                // 添加通知请求
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("Error scheduling notification: \(error)")
+                    } else {
+                        print("Scheduled notification: \(finalMessage) at \(hour):\(minute)")
+                    }
                 }
             }
         }
     }
+
+
+
 
     deinit {
         animationTimer?.invalidate()
