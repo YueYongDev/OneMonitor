@@ -24,19 +24,19 @@ struct PopoverView: View {
     var statusBarController: StatusBarController?
 
     var body: some View {
-        TodoListView()
-                    .frame(width: 300, height: 400)
-                    .padding()
-//        HStack(alignment: .center, spacing: 0) {
-//            // System information cards
-//            sectionView
-//            // Functional buttons
-//            buttonView
-//        }
-//        .frame(height: popoverHeight)
-//        .padding(EdgeInsets(top: 2, leading: 20, bottom: 2, trailing: 5))
-//        .background(Color.white)
-//        .cornerRadius(10)
+//        TodoListView()
+//                    .frame(width: 300, height: 400)
+//                    .padding()
+        HStack(alignment: .center, spacing: 0) {
+            // System information cards
+            sectionView
+            // Functional buttons
+            buttonView
+        }
+        .frame(height: popoverHeight)
+        .padding(EdgeInsets(top: 2, leading: 20, bottom: 2, trailing: 5))
+        .background(Color.white)
+        .cornerRadius(10)
     }
 
     private var sectionView: some View {
